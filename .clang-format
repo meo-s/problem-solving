@@ -1,0 +1,3 @@
+PointerAlignment: Left
+AllowShortIfStatementsOnASingleLine: AllIfsAndElse
+ColumnLimit: 120
