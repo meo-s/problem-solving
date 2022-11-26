@@ -3,11 +3,6 @@
 input()
 nums = [*map(int, input().split())]
 
-unique_nums = set(nums)
-ranks = dict(zip(sorted(unique_nums), range(len(unique_nums))))
-
-ans = [None] * len(nums)
-for i, n in enumerate(nums):
-    ans[i] = ranks[n]
-
-print(' '.join(map(str, ans)))
+unique_nums = sorted(set(nums))
+ranks = dict(((n, i) for i, n in enumerate(unique_nums)))
+print(*(ranks[n] for n in nums), sep=' ')
