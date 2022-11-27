@@ -1,17 +1,21 @@
 # https://www.acmicpc.net/problem/6064
 
 import sys
-readline = lambda: sys.stdin.readline().strip()
 
+readline = lambda: sys.stdin.readline().strip()
 
 for _ in range(int(readline())):
     M, N, x, y = map(int, readline().split())
+    x, y = x % M, y % N
 
-    nth = 1
-    a, b = 1, 1
-    while a != x or b != y:
-        nth += 1
-        a = max(1, (a + 1) % (M + 1))
-        b = max(1, (b + 1) % (N + 1))
+    if M < N:
+        M, N = N, M
+        x, y = y, x
 
-    print(nth)
+    ans = 0
+    for n in range(x if 0 < x else M, M * N + 1, M):
+        if n % N == y:
+            ans = n
+            break
+
+    print([-1, n][0 < ans])
