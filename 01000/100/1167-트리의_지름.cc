@@ -19,12 +19,8 @@ tree_diameter_t diameter_of(tree_t const& tree, sz const start = 1, sz const pre
 
     auto const& [d, r] = diameter_of(tree, v, start);
     max_d = max(max_d, d);
-    if (top1_r < r + w) {
-      top2_r = top1_r;
-      top1_r = r + w;
-    } else {
-      top2_r = max(top2_r, r + w);
-    }
+    top2_r = max(min(top1_r, r + w), top2_r);
+    top1_r = max(top1_r, r + w);
   }
 
   return {max(max_d, max(max(top1_r + top2_r, 0), top1_r)), max(top1_r, 0)};
