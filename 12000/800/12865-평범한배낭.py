@@ -1,26 +1,31 @@
 # https://www.acmicpc.net/problem/12865
 
-N, K = map(int, input().split())
-items = [tuple(map(int, input().split())) for _ in range(N)]
-items = sorted(items, key=lambda v: v[1], reverse=True)
-items = sorted(items, key=lambda v: v[0])
+import sys
 
-cache = [[None] * N for _ in range(K + 1)]
+readline = lambda: sys.stdin.readline().strip()
 
-def best_pick(empty_space, item_offset):
-    if item_offset == N:
-        return N, empty_space, 0
+N, K = map(int, readline().split())
+items = [tuple(map(int, readline().split())) for _ in range(N)]
 
-    best = (None, empty_space, 0)
-    for i in range(item_offset, N):
-        if empty_space < items[i][0]:
-            break
+dp = [[0] * (K + 1)]
+visited = set([0])
+for i, (w, v) in enumerate(items, start=1):
+    dp.append([*dp[-1]])
+    for w0 in [*visited]:
+        if w0 + w <= K:
+            visited.add(w0 + w)
+            dp[i][w0 + w] = max(dp[i - 1][w0 + w], dp[i - 1][w0] + v)
 
-        _, pe, pv = best_pick(empty_space - items[i][0], i + 1)
-        if best[-1] < pv + items[i][1]:
-            best = (i, pe, pv + items[i][1])
+print(max(dp[-1]))
 
-    print(best)
-    return best
+# N, K = map(int, readline().split())
+# items = [tuple(map(int, readline().split())) for _ in range(N)]
 
-print(best_pick(K, 0))
+# dp = [[0] * (K + 1)]
+# for w, v in items:
+#     dp.append([0] * (K + 1))
+#     for w0 in range(K + 1):
+#         dp[-1][w0] = dp[-2][w0]
+#         dp[-1][w0] = max(dp[-1][w0], dp[-2][w0 - w] + v) if 0 <= w0 - w else dp[-1][w0]
+
+# print(max(dp[-1]))
