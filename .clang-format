@@ -1,3 +1,4 @@
 PointerAlignment: Left
 AllowShortIfStatementsOnASingleLine: AllIfsAndElse
 ColumnLimit: 120
+IndentWidth: 4
