@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Vector;
 
-public class Baekjoon_1082 {
+public class BJ_1082 {
     public static class Number {
         int n;
         int price;
