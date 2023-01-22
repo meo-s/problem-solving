@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-public class BOJ13977 {
+public class BJ_13977_이항_계수와_쿼리 {
     final static int P = 1_000_000_007;
 
     public static class Factorial {
