@@ -18,12 +18,12 @@ def local_state_of(state, y, x):
     return ((state >> (y + 7)) ^ (state >> x)) & 1
 
 
-MOVABLE_DOOR_STATE = {-10: 0b1010, 10: 0b1010, -1: 0b0101, 1: 0b0101}
-DOOR = [  # UDLR
-    [0b1111, 0b1111],  # 0: A
-    [0b0000, 0b0000],  # 1: B
-    [0b1010, 0b0101],  # 2: C
-    [0b0101, 0b1010],  # 3: D
+MOVABLE_DOOR_STATE = {-10: 0b10, 10: 0b10, -1: 0b01, 1: 0b01}
+DOOR = [
+    [0b11, 0b11],  # 0: A
+    [0b00, 0b00],  # 1: B
+    [0b10, 0b01],  # 2: C
+    [0b01, 0b10],  # 3: D
 ]
 
 H, W = map(int, readline().split())
