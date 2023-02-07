@@ -1,6 +1,6 @@
 # [백준 17626번: Four Squares](https://www.acmicpc.net/problem/17626)
 #coding_test/tier/silver/3
-#coding_test/type/dynamic_programming
+#coding_test/type/dp
   
 자연수 $N$이 주어지면 $N$을 제곱수들의 합으로 표현할 때 필요한 제곱수들의 최소 개수를 구하는 문제이다.  
 
