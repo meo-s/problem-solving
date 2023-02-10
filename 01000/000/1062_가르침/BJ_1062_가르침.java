@@ -47,10 +47,12 @@ public class BJ_1062_가르침 {
                 return countReadablePolarWords(bitmask);
             }
 
-            int maxReadables = pickOptimalAlphabets(lb + 1, r, bitmask);
-            if ((DEFAULT_KNOWNS & (1 << lb)) == 0) {
-                final int newKnowns = bitmask | (1 << lb);
-                maxReadables = Math.max(maxReadables, pickOptimalAlphabets(lb + 1, r - 1, newKnowns));
+            int maxReadables = 0;
+            for (int i = lb; i < 'z' - 'a' + 1; ++i) {
+                if ((DEFAULT_KNOWNS & (1 << i)) == 0) {
+                    final int newKnowns = bitmask | (1 << i);
+                    maxReadables = Math.max(maxReadables, pickOptimalAlphabets(i + 1, r - 1, newKnowns));
+                }
             }
 
             return maxReadables;
