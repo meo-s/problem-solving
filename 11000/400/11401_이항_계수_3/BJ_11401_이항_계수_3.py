@@ -27,7 +27,7 @@ def factorial(n, stop=0):
 
 M = 1_000_000_007
 power.M, factorial.M = M, M
-readline = lambda: sys.stdin.readline().strip()
+readline = lambda: sys.stdin.readline().strip()  # noqa
 
 n, r = map(int, readline().split())
 r = min(r, n - r)
