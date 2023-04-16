@@ -9,7 +9,7 @@ def buy(facs, costs, lb, ub, n):
     return costs[ub - lb - 1] * n
 
 
-readline = lambda: sys.stdin.readline().strip()
+readline = lambda: sys.stdin.readline().strip()  # noqa
 N, B, C = map(int, readline().split())
 facs = [*map(int, readline().split()), 0, 0]
 
