@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class BJ_22862_가장_긴_짝수_연속하는_수열_large {
+public class BJ_22862_가장_긴_짝수_연속하는_수열_Large {
     public static void main(final String[] args) throws IOException {
         try (final var stdout = new BufferedWriter(new OutputStreamWriter(System.out));
                 final var stdin = new BufferedReader(new InputStreamReader(System.in))) {
