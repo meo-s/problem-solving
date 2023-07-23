@@ -19,26 +19,19 @@ fun gcd(a: Int, b: Int): Int {
 }
 
 fun main() = System.`in`.bufferedReader().use { stdin ->
-    val dp = ArrayDeque<IntArray>().apply {
-        add(IntArray(S + 1) { 0 })
-        add(IntArray(S + 1) { 0 })
-    }
+    val dp = IntArray(S + 1) { 0 }
 
     repeat(stdin.readLine().toInt()) {
-        val prev = dp.last()
-        val now = dp.removeFirst().apply { prev.copyInto(this) }
-
         val n = stdin.readLine().toInt()
         for (i in 1..S) {
-            if (0 < prev[i]) {
+            if (0 < dp[i]) {
                 val gcd = gcd(i, n)
-                now[gcd] = (now[gcd] + prev[i]) % M
+                dp[gcd] = (dp[gcd] + dp[i]) % M
             }
         }
 
-        now[n] = (now[n] + 1) % M
-        dp.addLast(now)
+        dp[n] = (dp[n] + 1) % M
     }
 
-    println(dp.last()[1])
+    println(dp[1])
 }
